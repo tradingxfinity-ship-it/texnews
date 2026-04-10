@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TEXNEWS — Professional news coverage of Texas. Politics, Business, Culture, and Local News from across the Lone Star State.">
+  <meta property="og:title" content="TEXNEWS — Lone Star State News">
+  <meta property="og:description" content="Professional news coverage of Texas. Politics, Business, Culture, and Local News.">
+  <meta property="og:type" content="website">
+  <title>TEXNEWS — Lone Star State News</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Font Awesome CDN for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- ═══ BREAKING NEWS TICKER ═══ -->
+  <div class="breaking-bar" role="marquee" aria-label="Breaking news">
+    <div class="container">
+      <span class="breaking-label">Breaking</span>
+      <div class="ticker-wrapper">
+        <span class="ticker-content">
+          &#9733; Austin housing reform bill passes 9-2 &nbsp;&nbsp;&#9679;&nbsp;&nbsp;
+          &#9733; Texas energy sector hits record $42B quarter &nbsp;&nbsp;&#9679;&nbsp;&nbsp;
+          &#9733; SpaceX Starship completes first full orbital mission from Boca Chica &nbsp;&nbsp;&#9679;&nbsp;&nbsp;
+          &#9733; Smithson Valley Rangers win Class 6A state football title &nbsp;&nbsp;&#9679;&nbsp;&nbsp;
+          &#9733; NWS warns of above-average hurricane season for Gulf Coast &nbsp;&nbsp;&#9679;&nbsp;&nbsp;
+          &#9733; Governor signs Texas Education Innovation Act &nbsp;&nbsp;&#9679;&nbsp;&nbsp;
+          &#9733; San Antonio named top culinary destination in the American South
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SITE HEADER ═══ -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <!-- Logo -->
+      <a href="index.html" class="logo" aria-label="TEXNEWS Homepage">
+        <div class="logo-star" aria-hidden="true"></div>
+        <div class="logo-text">
+          <span class="logo-name">TEX<span>NEWS</span></span>
+          <span class="logo-tagline">Lone Star State News</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="main-nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="index.html?cat=Politics" class="nav-link">Politics</a>
+        <a href="index.html?cat=Business" class="nav-link">Business</a>
+        <a href="index.html?cat=Culture" class="nav-link">Culture</a>
+        <a href="index.html?cat=Local+News" class="nav-link">Local News</a>
+        <a href="about.html" class="nav-link">About</a>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <form class="header-search-form" role="search" onsubmit="return false;">
+          <input
+            type="search"
+            id="headerSearch"
+            class="header-search-input"
+            placeholder="Search TEXNEWS..."
+            aria-label="Search articles"
+            autocomplete="off"
+          >
+          <button type="submit" class="header-search-btn" aria-label="Submit search">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ MOBILE NAV OVERLAY ═══ -->
+  <div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
+      <i class="fas fa-times"></i>
+    </button>
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="index.html?cat=Politics" class="mobile-nav-link">Politics</a>
+    <a href="index.html?cat=Business" class="mobile-nav-link">Business</a>
+    <a href="index.html?cat=Culture" class="mobile-nav-link">Culture</a>
+    <a href="index.html?cat=Local+News" class="mobile-nav-link">Local News</a>
+    <a href="about.html" class="mobile-nav-link">About</a>
+  </div>
+
+  <!-- ═══ MAIN ═══ -->
+  <main>
+
+    <!-- Hero / Featured Post -->
+    <section class="hero-section" id="heroSection" aria-label="Featured article">
+      <!-- Rendered by JS -->
+    </section>
+
+    <!-- Section Filter Bar -->
+    <div class="section-bar">
+      <div class="section-bar-inner">
+        <div class="filter-tabs" role="tablist" aria-label="Filter by category">
+          <button class="filter-btn active" data-cat="All" role="tab" aria-selected="true">All</button>
+          <button class="filter-btn" data-cat="Politics" role="tab" aria-selected="false">Politics</button>
+          <button class="filter-btn" data-cat="Business" role="tab" aria-selected="false">Business</button>
+          <button class="filter-btn" data-cat="Culture" role="tab" aria-selected="false">Culture</button>
+          <button class="filter-btn" data-cat="Local News" role="tab" aria-selected="false">Local News</button>
+        </div>
+        <span class="bar-date" id="currentDate"></span>
+      </div>
+    </div>
+
+    <!-- Page Layout: Articles + Sidebar -->
+    <div class="page-layout">
+
+      <!-- Left: Articles -->
+      <div>
+        <!-- Search Bar -->
+        <div class="search-container">
+          <div class="search-box" role="search">
+            <span class="search-icon" aria-hidden="true"><i class="fas fa-search"></i></span>
+            <input
+              type="text"
+              id="mainSearch"
+              class="search-input"
+              placeholder="Search articles, topics, or authors..."
+              aria-label="Search articles"
+              autocomplete="off"
+            >
+            <button class="search-clear" id="searchClear" aria-label="Clear search">&times;</button>
+          </div>
+        </div>
+
+        <!-- Results Info -->
+        <p class="results-info" id="resultsInfo"></p>
+
+        <!-- Posts Grid -->
+        <div class="posts-grid" id="postsGrid" role="list" aria-label="Latest articles">
+          <!-- Rendered by JS -->
+        </div>
+
+        <!-- No Results -->
+        <div class="no-results" id="noResults" role="status">
+          <div class="no-results-icon">&#128269;</div>
+          <h3>No articles found</h3>
+          <p>Try a different search term or browse all categories.</p>
+        </div>
+      </div>
+
+      <!-- Right: Sidebar -->
+      <aside class="sidebar" role="complementary" aria-label="Sidebar">
+
+        <!-- Trending Widget -->
+        <div class="sidebar-widget">
+          <h3 class="widget-title">
+            <span class="widget-title-icon">&#128293;</span> Trending Now
+          </h3>
+          <div class="trending-list" id="trendingList"></div>
+        </div>
+
+        <!-- Categories Widget -->
+        <div class="sidebar-widget">
+          <h3 class="widget-title">
+            <span class="widget-title-icon">&#128200;</span> Categories
+          </h3>
+          <div class="cat-links" id="catLinks"></div>
+        </div>
+
+        <!-- Newsletter Widget -->
+        <div class="sidebar-widget newsletter-widget">
+          <h3 class="widget-title">
+            <span class="widget-title-icon">&#128139;</span> Texas Briefing
+          </h3>
+          <p class="newsletter-text">Get the most important Texas news delivered to your inbox every morning. No spam, ever.</p>
+          <form class="newsletter-form" id="newsletterForm">
+            <input
+              type="email"
+              class="newsletter-input"
+              placeholder="your@email.com"
+              required
+              aria-label="Email address for newsletter"
+            >
+            <button type="submit" class="newsletter-btn">Subscribe Free</button>
+          </form>
+          <div class="newsletter-success" id="newsletterSuccess">
+            &#10003; &nbsp;You're subscribed! Check your inbox.
+          </div>
+        </div>
+
+      </aside>
+    </div>
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="texas-flag-bar" aria-hidden="true"></div>
+    <div class="footer-top">
+      <!-- Brand column -->
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="footer-logo-star" aria-hidden="true"></div>
+          <span class="footer-logo-name">TEX<span>NEWS</span></span>
+        </div>
+        <p class="footer-desc">
+          TEXNEWS is Texas' premier digital news platform, delivering trusted reporting on politics, business, culture, and local news from across the Lone Star State.
+        </p>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" class="social-btn" aria-label="Twitter / X">
+            <i class="fab fa-x-twitter"></i>
+          </a>
+          <a href="#" class="social-btn" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="social-btn" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="social-btn" aria-label="YouTube">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="#" class="social-btn" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Sections column -->
+      <div class="footer-col">
+        <h4>Sections</h4>
+        <nav class="footer-links" aria-label="Footer sections">
+          <a href="index.html" class="footer-link">Home</a>
+          <a href="index.html?cat=Politics" class="footer-link">Politics</a>
+          <a href="index.html?cat=Business" class="footer-link">Business</a>
+          <a href="index.html?cat=Culture" class="footer-link">Culture</a>
+          <a href="index.html?cat=Local+News" class="footer-link">Local News</a>
+        </nav>
+      </div>
+
+      <!-- Company column -->
+      <div class="footer-col">
+        <h4>Company</h4>
+        <nav class="footer-links" aria-label="Footer company links">
+          <a href="about.html" class="footer-link">About Us</a>
+          <a href="#" class="footer-link">Our Team</a>
+          <a href="#" class="footer-link">Advertise</a>
+          <a href="#" class="footer-link">Careers</a>
+          <a href="#" class="footer-link">Contact</a>
+        </nav>
+      </div>
+
+      <!-- Legal column -->
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <nav class="footer-links" aria-label="Footer legal links">
+          <a href="#" class="footer-link">Terms of Service</a>
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link">Cookie Policy</a>
+          <a href="#" class="footer-link">Editorial Standards</a>
+          <a href="#" class="footer-link">Corrections</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p class="footer-copy">
+        &copy; 2026 <a href="index.html">TEXNEWS</a>. All rights reserved. Serving Texas since 2015.
+      </p>
+      <nav class="footer-bottom-links" aria-label="Footer bottom links">
+        <a href="#" class="footer-bottom-link">Sitemap</a>
+        <a href="#" class="footer-bottom-link">RSS Feed</a>
+        <a href="#" class="footer-bottom-link">Accessibility</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- ═══ SCROLL-TO-TOP BUTTON ═══ -->
+  <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+
+  <!-- Handle URL category param -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const cat = params.get('cat');
+      if (cat) {
+        const btn = document.querySelector(`.filter-btn[data-cat="${cat}"]`);
+        if (btn) setTimeout(() => btn.click(), 100);
+      }
+    });
+  </script>
+</body>
+</html>

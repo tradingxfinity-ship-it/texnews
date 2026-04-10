@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Read the full article on TEXNEWS — Lone Star State News.">
+  <meta property="og:title" content="TEXNEWS Article">
+  <meta property="og:type" content="article">
+  <title>TEXNEWS — Article</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- ═══ BREAKING NEWS TICKER ═══ -->
+  <div class="breaking-bar" role="marquee" aria-label="Breaking news">
+    <div class="container">
+      <span class="breaking-label">Breaking</span>
+      <div class="ticker-wrapper">
+        <span class="ticker-content">
+          &#9733; Austin housing reform bill passes 9-2 &nbsp;&nbsp;&#9679;&nbsp;&nbsp;
+          &#9733; Texas energy sector hits record $42B quarter &nbsp;&nbsp;&#9679;&nbsp;&nbsp;
+          &#9733; SpaceX Starship completes first full orbital mission from Boca Chica &nbsp;&nbsp;&#9679;&nbsp;&nbsp;
+          &#9733; Smithson Valley Rangers win Class 6A state football title &nbsp;&nbsp;&#9679;&nbsp;&nbsp;
+          &#9733; NWS warns of above-average hurricane season for Gulf Coast &nbsp;&nbsp;&#9679;&nbsp;&nbsp;
+          &#9733; Governor signs Texas Education Innovation Act
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SITE HEADER ═══ -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="TEXNEWS Homepage">
+        <div class="logo-star" aria-hidden="true"></div>
+        <div class="logo-text">
+          <span class="logo-name">TEX<span>NEWS</span></span>
+          <span class="logo-tagline">Lone Star State News</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="index.html?cat=Politics" class="nav-link">Politics</a>
+        <a href="index.html?cat=Business" class="nav-link">Business</a>
+        <a href="index.html?cat=Culture" class="nav-link">Culture</a>
+        <a href="index.html?cat=Local+News" class="nav-link">Local News</a>
+        <a href="about.html" class="nav-link">About</a>
+      </nav>
+
+      <div class="header-actions">
+        <form class="header-search-form" role="search" onsubmit="return false;">
+          <input
+            type="search"
+            id="headerSearch"
+            class="header-search-input"
+            placeholder="Search TEXNEWS..."
+            aria-label="Search articles"
+            autocomplete="off"
+          >
+          <button type="submit" class="header-search-btn" aria-label="Submit search">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ MOBILE NAV OVERLAY ═══ -->
+  <div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
+      <i class="fas fa-times"></i>
+    </button>
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="index.html?cat=Politics" class="mobile-nav-link">Politics</a>
+    <a href="index.html?cat=Business" class="mobile-nav-link">Business</a>
+    <a href="index.html?cat=Culture" class="mobile-nav-link">Culture</a>
+    <a href="index.html?cat=Local+News" class="mobile-nav-link">Local News</a>
+    <a href="about.html" class="mobile-nav-link">About</a>
+  </div>
+
+  <!-- ═══ MAIN ═══ -->
+  <main id="postContent">
+
+    <!-- Post Hero / Banner -->
+    <div class="post-hero">
+      <img id="postHeroImg" src="" alt="" class="post-hero-img">
+      <div class="post-hero-overlay"></div>
+      <div style="max-width:1240px;margin:0 auto;position:relative;height:100%;">
+        <div class="post-hero-content">
+          <span id="postHeroCat" class="post-hero-cat"></span>
+          <h1 id="postHeroTitle" class="post-hero-title"></h1>
+          <div class="post-hero-meta">
+            <span class="post-hero-meta-item" id="postHeroAuthor"></span>
+            <span class="post-hero-divider">|</span>
+            <span class="post-hero-meta-item">
+              <i class="far fa-calendar-alt" style="font-size:12px;opacity:.7"></i>
+              <span id="postHeroDate"></span>
+            </span>
+            <span class="post-hero-divider">|</span>
+            <span class="post-hero-meta-item">
+              <i class="far fa-clock" style="font-size:12px;opacity:.7"></i>
+              <span id="postHeroTime"></span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-sep"><i class="fas fa-chevron-right" style="font-size:10px"></i></span>
+      <a href="#" id="breadcrumbCat"></a>
+      <span class="breadcrumb-sep"><i class="fas fa-chevron-right" style="font-size:10px"></i></span>
+      <span id="breadcrumbTitle" style="color:var(--gray-500)"></span>
+    </nav>
+
+    <!-- Post Layout: Article + Sidebar -->
+    <div class="post-layout">
+
+      <!-- Article -->
+      <article>
+        <div class="post-article">
+          <!-- Caption below image -->
+          <p class="post-caption" id="postCaption"></p>
+
+          <!-- Article body -->
+          <div class="post-article-inner">
+            <div class="post-body" id="postBody">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+
+          <!-- Tags -->
+          <div class="tags-bar">
+            <span class="tags-label">Tags:</span>
+            <div id="postTags" style="display:flex;flex-wrap:wrap;gap:8px;"></div>
+          </div>
+
+          <!-- Share bar -->
+          <div class="share-bar">
+            <span class="share-label">Share:</span>
+            <button class="share-btn" id="shareTwitter">
+              <i class="fab fa-x-twitter"></i> Twitter
+            </button>
+            <button class="share-btn" id="shareFacebook">
+              <i class="fab fa-facebook-f"></i> Facebook
+            </button>
+            <button class="share-btn" id="shareCopy">
+              &#128279; Copy Link
+            </button>
+          </div>
+        </div>
+
+        <!-- Author Bio -->
+        <div class="author-bio" id="authorBio">
+          <div class="author-avatar" aria-hidden="true"></div>
+          <div class="author-bio-info">
+            <h4 class="author-name"></h4>
+            <div class="author-title"></div>
+            <p>TEXNEWS correspondent covering news across the Lone Star State with a commitment to accuracy, fairness, and serving our Texas community.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="sidebar" role="complementary" aria-label="Article sidebar">
+
+        <!-- Related Posts Widget -->
+        <div class="sidebar-widget">
+          <h3 class="widget-title">
+            <span class="widget-title-icon">&#128240;</span> Related Articles
+          </h3>
+          <div class="related-posts-grid" id="relatedPosts"></div>
+        </div>
+
+        <!-- Trending Widget -->
+        <div class="sidebar-widget">
+          <h3 class="widget-title">
+            <span class="widget-title-icon">&#128293;</span> Trending Now
+          </h3>
+          <div class="trending-list" id="trendingList"></div>
+        </div>
+
+        <!-- Newsletter Widget -->
+        <div class="sidebar-widget newsletter-widget">
+          <h3 class="widget-title">
+            <span class="widget-title-icon">&#128139;</span> Texas Briefing
+          </h3>
+          <p class="newsletter-text">Get the most important Texas news delivered to your inbox every morning.</p>
+          <form class="newsletter-form" id="newsletterForm">
+            <input
+              type="email"
+              class="newsletter-input"
+              placeholder="your@email.com"
+              required
+              aria-label="Email address for newsletter"
+            >
+            <button type="submit" class="newsletter-btn">Subscribe Free</button>
+          </form>
+          <div class="newsletter-success" id="newsletterSuccess">
+            &#10003; &nbsp;You're subscribed! Check your inbox.
+          </div>
+        </div>
+
+        <!-- Back to homepage -->
+        <a href="index.html" style="display:flex;align-items:center;gap:8px;justify-content:center;padding:14px 20px;background:var(--white);border:2px solid var(--gray-200);border-radius:8px;font-size:14px;font-weight:600;color:var(--gray-700);text-decoration:none;box-shadow:var(--shadow-sm);transition:all .2s ease;" onmouseover="this.style.borderColor='var(--texas-red)';this.style.color='var(--texas-red)'" onmouseout="this.style.borderColor='var(--gray-200)';this.style.color='var(--gray-700)'">
+          <i class="fas fa-arrow-left" style="font-size:12px"></i>
+          Back to All News
+        </a>
+
+      </aside>
+    </div>
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="texas-flag-bar" aria-hidden="true"></div>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="footer-logo-star" aria-hidden="true"></div>
+          <span class="footer-logo-name">TEX<span>NEWS</span></span>
+        </div>
+        <p class="footer-desc">
+          TEXNEWS is Texas' premier digital news platform, delivering trusted reporting on politics, business, culture, and local news from across the Lone Star State.
+        </p>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" class="social-btn" aria-label="Twitter / X"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Sections</h4>
+        <nav class="footer-links">
+          <a href="index.html" class="footer-link">Home</a>
+          <a href="index.html?cat=Politics" class="footer-link">Politics</a>
+          <a href="index.html?cat=Business" class="footer-link">Business</a>
+          <a href="index.html?cat=Culture" class="footer-link">Culture</a>
+          <a href="index.html?cat=Local+News" class="footer-link">Local News</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <nav class="footer-links">
+          <a href="about.html" class="footer-link">About Us</a>
+          <a href="#" class="footer-link">Our Team</a>
+          <a href="#" class="footer-link">Advertise</a>
+          <a href="#" class="footer-link">Careers</a>
+          <a href="#" class="footer-link">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <nav class="footer-links">
+          <a href="#" class="footer-link">Terms of Service</a>
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link">Cookie Policy</a>
+          <a href="#" class="footer-link">Editorial Standards</a>
+          <a href="#" class="footer-link">Corrections</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 <a href="index.html">TEXNEWS</a>. All rights reserved.</p>
+      <nav class="footer-bottom-links">
+        <a href="#" class="footer-bottom-link">Sitemap</a>
+        <a href="#" class="footer-bottom-link">RSS Feed</a>
+        <a href="#" class="footer-bottom-link">Accessibility</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Scroll To Top -->
+  <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
