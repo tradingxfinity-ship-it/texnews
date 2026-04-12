@@ -29,11 +29,14 @@ function slugify(str) {
 function initIndexPage() {
   if (!document.getElementById('postsGrid')) return;
 
-  const featured   = POSTS.find(p => p.featured);
-  const nonFeatured = POSTS.filter(p => !p.featured);
+  const sorted = [...POSTS].sort((a, b) => new Date(b.dateISO) - new Date(a.dateISO));
+  // Always use the most recent post as hero on mobile, otherwise prefer flagged featured
+  const isMobile = window.innerWidth < 680;
+  const featured = isMobile ? sorted[0] : (sorted.find(p => p.featured) || sorted[0]);
+  const nonFeatured = sorted.filter(p => p.id !== featured.id);
 
   renderHero(featured);
-  renderTrendingSidebar(POSTS.slice(0, 5));
+  renderTrendingSidebar(sorted.slice(0, 5));
   renderCategoryWidget();
   renderPosts(nonFeatured);
   initFilters(nonFeatured);
